@@ -120,12 +120,31 @@ class Ejercito{
             // al ejercito, osea ponerlo como nuevo
             unaLocalidad.serOcupada(self)
         }
-
     }
     method poderOfensivo() = personaje.sum({p => p.potencialOfensivo()})
 
     method puedeInvadir(unaLocalidad) {
         return
         self.poderOfensivo() > unaLocalidad.poderDefensivo() 
-    } 
+    }
+    method ejercitoMasFuerte(){
+        self.ordenadosLosMasPoderosos().take(10)
+        /*
+            take = agarra los primeros
+            diez elementos
+            ya agarra diez elementos y
+            lo que hace es devolver o armar
+            una sublista con lo mismo
+        */
+    }
+    method ordenadosLosMasPoderosos(){
+        /*
+            el metodo sortBy lo que me permite
+            hacer es acomodar una lista segun
+            como yo quiera / pida
+            - altera los datos de la coleccion
+        */
+        return
+        personaje.sortBy({p1,p2 => p1.poderOfensivo() > p2.poderOfensivo()})
+    }
 }
