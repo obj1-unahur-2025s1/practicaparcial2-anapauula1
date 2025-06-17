@@ -105,10 +105,22 @@ class Aldea inherits Localidad{
         de ejercito entonces lo que hacemos es llamarla
         en el metodo
     */
-    method serOcupada()
+    method serOcupada(unEjercito){
+        if(unEjercito.size() > cantidadMaxima){
+           ejercito = unEjercito.ejercitoMasFuerte()
+        }
+    }
 }
 class Ciudad inherits Localidad {
     override method poderDefensivo() = super() + 300
+
+    method serOcupada(unEjercito){
+        /*
+            reemplaza al ejercito
+            por uno nuevo basicamente
+        */
+         ejercito = unEjercito
+    } 
 }
 class Ejercito{
     const personaje = []
